@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhisha K | Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal-primary: #008B8B;
+            --teal-light: #20B2AA;
+            --teal-dark: #006666;
+            --teal-subtle: #E0F2F1;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --text-dark: #1A1A1A;
+            --text-medium: #4A4A4A;
+            --text-light: #7A7A7A;
+            --accent-gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 139, 139, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--teal-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--white) 0%, var(--teal-subtle) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 139, 139, 0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            color: var(--teal-primary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--teal-primary);
+            color: var(--white);
+            border-color: var(--teal-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            border-color: var(--teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 139, 139, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--teal-primary);
+            border-color: var(--teal-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--teal-primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 139, 139, 0.2);
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--teal-primary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--off-white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 139, 139, 0.1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 139, 139, 0.15);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 139, 139, 0.1);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 139, 139, 0.2);
+            border-color: var(--teal-primary);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--off-white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 139, 139, 0.1);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 139, 139, 0.25);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+            color: var(--white);
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: var(--teal-subtle);
+            color: var(--teal-dark);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-achievement {
+            padding: 1rem;
+            background: var(--off-white);
+            border-left: 3px solid var(--teal-primary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            font-style: italic;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            flex: 1;
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .link-code {
+            background: transparent;
+            color: var(--teal-primary);
+            border: 2px solid var(--teal-primary);
+        }
+
+        .link-code:hover {
+            background: var(--teal-primary);
+            color: var(--white);
+        }
+
+        .link-demo {
+            background: var(--teal-primary);
+            color: var(--white);
+            border: 2px solid var(--teal-primary);
+        }
+
+        .link-demo:hover {
+            background: var(--teal-dark);
+            border-color: var(--teal-dark);
+        }
+
+        /* Interests Section */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .interest-card {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--teal-subtle) 0%, var(--white) 100%);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 139, 139, 0.1);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .interest-card:nth-child(1) { animation-delay: 0.1s; }
+        .interest-card:nth-child(2) { animation-delay: 0.2s; }
+        .interest-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .interest-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 139, 139, 0.2);
+        }
+
+        .interest-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .interest-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            margin-bottom: 1rem;
+        }
+
+        .interest-description {
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* Goals Section */
+        #goals {
+            background: var(--off-white);
+        }
+
+        .goals-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .goal-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            border-left: 5px solid var(--teal-primary);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .goal-card:nth-child(1) { animation-delay: 0.1s; }
+        .goal-card:nth-child(2) { animation-delay: 0.3s; }
+
+        .goal-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 50px rgba(0, 139, 139, 0.15);
+        }
+
+        .goal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .goal-description {
+            color: var(--text-medium);
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            padding: 2.5rem 2rem;
+            background: var(--off-white);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 2px solid transparent;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .contact-item:hover {
+            background: var(--white);
+            border-color: var(--teal-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 139, 139, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--teal-primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--teal-light);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .hero-description {
+                max-width: 100%;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .goals-container {
+                grid-template-columns: 1fr;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                margin-top: 80px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AK</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-subtitle">Data Science Professional</div>
+                <h1 class="hero-title">Abhisha K</h1>
+                <p class="hero-description">
+                    Transforming data into actionable insights through advanced analytics, 
+                    machine learning, and innovative visualization techniques.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="abhisha.jpeg" alt="Abhisha K">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-subtitle">Get to Know Me</div>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I am a passionate Data Science enthusiast currently pursuing my Master's in Computer Applications (MCA). 
+                    I recently completed a Data Science Internship at Luminar Technolab, where I gained hands-on experience 
+                    in predictive modeling, data visualization, and machine learning algorithms.
+                </p>
+                <p>
+                    My journey in data science began during my Bachelor's in Computer Science from Calicut University, 
+                    where I developed a strong foundation in programming, statistics, and data analysis. I'm particularly 
+                    fascinated by how data can be transformed into actionable insights to solve real-world business challenges.
+                </p>
+                <p>
+                    I believe in continuous learning and staying updated with the latest trends in AI and analytics. 
+                    My goal is to leverage data-driven approaches to create meaningful impact in the organizations I work with.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Major Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Model Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Technical Skills</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Dedication</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <div class="section-subtitle">My Expertise</div>
+            <h2 class="section-title">Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🐍</div>
+                <h3 class="skill-name">Python</h3>
+                <p class="skill-description">Advanced data manipulation and analysis</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🗄️</div>
+                <h3 class="skill-name">SQL</h3>
+                <p class="skill-description">Complex queries and database management</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3 class="skill-name">Power BI</h3>
+                <p class="skill-description">Interactive dashboards and reporting</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📈</div>
+                <h3 class="skill-name">Data Visualization</h3>
+                <p class="skill-description">Matplotlib, Seaborn, Plotly</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3 class="skill-name">Machine Learning</h3>
+                <p class="skill-description">Supervised & unsupervised algorithms</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <h3 class="skill-name">Streamlit</h3>
+                <p class="skill-description">Web applications for data projects</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <div class="section-subtitle">My Work</div>
+            <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">AI-Powered Social Media Marketing Strategy Predictor</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Built an ML-powered app predicting social media engagement using Random Forest and Streamlit, 
+                        with automated model deployment.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Random Forest</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Plotly</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Cloud Deployment</span>
+                    </div>
+                    <div class="project-achievement">
+                        Real-time engagement prediction with automated Google Drive model retrieval and Streamlit Cloud deployment
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abhisha-k/AI-Powered-Social-Media-Marketing-Strategy-Predictor" class="project-link link-code">Code</a>
+                        <a href="https://ai-powered-social-media-marketing-strategy-predictor-znzlbusef.streamlit.app/" class="project-link link-demo">Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Loan Eligibility Predictor</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Built a Streamlit web application that uses machine learning to assess loan eligibility 
+                        based on financial and demographic factors.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Pandas</span>
+                    </div>
+                    <div class="project-achievement">
+                        92% accuracy in loan approval prediction
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abhisha-k/loan_approval_prediction" class="project-link link-code">Code</a>
+                        <a href="https://loan-approval-prediction-lxn5ied5psttuv63ttxtd9.streamlit.app/" class="project-link link-demo">Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Sales Analytics Dashboard</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Created an interactive Power BI dashboard to visualize sales performance, customer segmentation, 
+                        and regional trends.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">DAX</span>
+                    </div>
+                    <div class="project-achievement">
+                        Enabled 15% improvement in sales strategy
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abhisha-k/sales-analytics-dashboard" class="project-link link-code">Code</a>
+                        <a href="#" class="project-link link-demo">View</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Customer Satisfaction Prediction</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Developed a machine learning model to predict customer satisfaction levels based on 
+                        service feedback and demographic data.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Random Forest</span>
+                        <span class="tag">Logistic Regression</span>
+                        <span class="tag">Feature Engineering</span>
+                    </div>
+                    <div class="project-achievement">
+                        85% accuracy in predicting customer satisfaction
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abhisha-k/Employee-Dataset" class="project-link link-code">Code</a>
+                        <a href="#" class="project-link link-demo">Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests">
+        <div class="section-header">
+            <div class="section-subtitle">Areas of Focus</div>
+            <h2 class="section-title">Research Interests</h2>
+        </div>
+        <div class="interests-grid">
+            <div class="interest-card">
+                <div class="interest-icon">🧠</div>
+                <h3 class="interest-title">Deep Learning</h3>
+                <p class="interest-description">
+                    Exploring neural networks and their applications in complex problem-solving
+                </p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon">👁️</div>
+                <h3 class="interest-title">Computer Vision</h3>
+                <p class="interest-description">
+                    Working with CNNs for image recognition and classification tasks
+                </p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon">😊</div>
+                <h3 class="interest-title">Emotion Recognition</h3>
+                <p class="interest-description">
+                    Developing models to detect and interpret human emotions from visual data
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals">
+        <div class="section-header">
+            <div class="section-subtitle">Vision & Aspirations</div>
+            <h2 class="section-title">Career Goals</h2>
+        </div>
+        <div class="goals-container">
+            <div class="goal-card">
+                <h3 class="goal-title">Short-Term Goals</h3>
+                <p class="goal-description">
+                    To gain deeper hands-on experience in data science by working on challenging real-world projects. 
+                    I aim to further develop my expertise in machine learning, deep learning, and data engineering 
+                    while contributing to impactful business solutions.
+                </p>
+            </div>
+            <div class="goal-card">
+                <h3 class="goal-title">Long-Term Goals</h3>
+                <p class="goal-description">
+                    To establish myself as a leading data science professional in a reputed organization, where I can 
+                    leverage AI-driven insights to solve complex business challenges. I aspire to lead innovative 
+                    projects that push the boundaries of what's possible with data analytics.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <div class="section-subtitle">Let's Connect</div>
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <a href="mailto:abhishakannoly@gmail.com" class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">abhishakannoly@gmail.com</div>
+                </a>
+                <a href="https://www.linkedin.com/in/abhisha-kannoly/" target="_blank" class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">abhisha-kannoly</div>
+                </a>
+                <a href="https://github.com/abhisha-k" target="_blank" class="contact-item">
+                    <div class="contact-icon">💻</div>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">abhisha-k</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Abhisha K</div>
+            <p class="footer-text">© 2025 Abhisha K. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
